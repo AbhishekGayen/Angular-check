@@ -16,6 +16,7 @@ Services - Used to create component which can be shared across entire applicatio
     1. Include angular CLI application
 	   2. npm install -g @angular/cli
 	   3. ng new my-app
+	   4. npm start (To run angular application)
 
 Project Structure file explanation:
 ------------------------------------
@@ -36,3 +37,25 @@ c. tsconfig.json - configuration for typescrpt including compilar option
 d. tslint.json - we can define the rules for typescript
 
 
+Architecture:
+
+Component 
+	class
+	export - if we try to use the component from other component
+service = Service
+
+Lifecycle of Angular:
+
+1. ngOnChange() - when there is any change in input properties
+2. ngOnInit() - once after the componet initialize
+3. ngOnDestro()  - just before componet initialize
+4. ngDoCheck() - every change detection cycle
+5. ngAfterContentInit() - after content projection
+6. ngAfterContentCheck() - after projected chec
+7. ngViewInit() - After parent and child component visible
+8. ngViewChecked() - after every check of compoent view
+
+Decorators:
+-----------
+@Input() - passing parameter from Parent to child component
+@Output() - passing parameter from child to parent
