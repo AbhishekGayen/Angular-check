@@ -1,0 +1,38 @@
+
+Angular Framework:
+
+Angular 1 -> Javascript
+Angular 2 -> typescript (Angular 16)
+
+Features of Angular 2 
+1. Components
+2. Typescript
+3. ServiceComponents for Angular2:Module - break the application in logical pieces.
+Component - bring all module together
+Template - helps to define the views
+Metadata - helps to add more data on angular js application.
+Services - Used to create component which can be shared across entire application
+
+    1. Include angular CLI application
+	   2. npm install -g @angular/cli
+	   3. ng new my-app
+
+Project Structure file explanation:
+------------------------------------
+1. node_module - store external dependency for project
+2. src/ - Angular app stays over the this folder
+3. src/apps -> contains main application code, the directory inclued module, component, service and other busi ness logic.
+4. src/assests/ -> where we keep al the image, fonts, icons 
+5. src/environment -> where we keep all the necessary envionment file where we metion that whcih envionment we need to point todev/test/prod.
+6. src/index.html ->main ahtml which loada first before application loads
+7. src/main.ts - > entry point to an angular application using bootstrapApplication (<app-root></app-root>)
+8. src/style.css -> whioch is generic/commpon style that can be applied to the entire application.
+
+Configuration file:
+
+a. angular.json - this file contains all the configuration related to angular CLI, including build, serve, test configuration.
+b. package.json - list of dependencies of the project.
+c. tsconfig.json - configuration for typescrpt including compilar option
+d. tslint.json - we can define the rules for typescript
+
+
