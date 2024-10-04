@@ -59,3 +59,12 @@ Decorators:
 -----------
 @Input() - passing parameter from Parent to child component
 @Output() - passing parameter from child to parent
+-----------
+Angular Routing - is a mechanism that allows nevigation between 2 different components and looks lika SPA.
+I loads component  based on the url and load the component.
+
+RouterModule - helps to enable routing for nthe application
+Routes - We have array of routes information.
+RouterOutlet - directive, we use in template/html
+RouterLink - like <a>.
+ActivatedRoure - we can pass data via url

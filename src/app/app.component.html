@@ -4,7 +4,13 @@
     <div ngSkipHydration>
       <h1>First Angular Application</h1>
       <span class="welcome-txt">Welcome to Angular Learning</span>
-      <dash-board [message]="msg"></dash-board>
+      <dash-board [message]="msg" (passDataFromChild)="recivedDataFromChild($event)"></dash-board>
+      {{receivedmsg}}
     </div>
+    <nav>
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/results" routerLinkActive="active">Results</a>
+    </nav>
+    <router-outlet></router-outlet>
   </body>
 </html>
