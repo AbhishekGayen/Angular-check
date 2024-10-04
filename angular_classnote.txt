@@ -68,3 +68,6 @@ Routes - We have array of routes information.
 RouterOutlet - directive, we use in template/html
 RouterLink - like <a>.
 ActivatedRoure - we can pass data via url
+
+-------------
+Backend Service can be invoked via http service. http we have all the methods like GET, PUT, POST, DELETYE
