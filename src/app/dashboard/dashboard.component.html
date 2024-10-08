@@ -3,6 +3,12 @@
         <div ngSkipHydration>
             <h1>Inside Dashboard Featured</h1>
             {{message}}
+            <span>
+                {{receivedData}}
+            </span>
+            <div>
+                <button (click)="submitData()">Go</button>
+            </div>
         </div>
     </body>
 </html>

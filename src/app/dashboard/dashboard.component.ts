@@ -1,6 +1,8 @@
 import { CommonModule } from "@angular/common";
 import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
 import { ActivatedRoute, ActivatedRouteSnapshot, RouterModule, RouterOutlet } from "@angular/router";
+import { DashboardService } from "./dasboard.service";
+import { error } from "console";
 
 @Component({
     selector: 'dash-board',
@@ -11,10 +13,14 @@ import { ActivatedRoute, ActivatedRouteSnapshot, RouterModule, RouterOutlet } fr
     styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
+
     @Input() message :string = '';
     @Output() passDataFromChild = new EventEmitter<string>();
     txtmsg:string='Sending Back to Parent!!';
-    constructor(private route: ActivatedRoute) {
+    receivedData: any;
+
+    constructor(private route: ActivatedRoute, 
+                private dashboardService: DashboardService) {
         console.log('Dashboard Compoent Constructor Invoked!!');
     }
 
@@ -23,10 +29,62 @@ export class DashboardComponent implements OnInit {
         console.log(this.route.snapshot.paramMap.get('id'));
         console.log(this.route.snapshot.queryParamMap.get('rest'));
         this.passDataFromChild.emit(this.txtmsg);
+
+        //get the data from backend
+        this.dashboardService.getData().subscribe((data) => {
+            this.receivedData = data;
+        });
     }
 
     submit() {
         console.log('Button Clicked!! : ');
         this.passDataFromChild.emit(this.txtmsg);
     }
+
+    submitData() {
+        const reqParam = {
+            title: 'Data',
+            requestId: 2,
+            data: 'Please check once'
+        };
+
+        this.dashboardService.postData(reqParam).subscribe({
+            next: (data) => {
+                console.log(data);
+            },
+            error: (error) => {
+                console.error(error);
+            },
+            complete: () => {console.log('Process Completed...')}
+        });
+    }
+
+    updateData() {
+        const reqParam = {
+            title: 'Data',
+            requestId: 2,
+            data: 'Please check once'
+        };
+        this.dashboardService.updateData(reqParam).subscribe({
+            next: (data) => {
+                console.log("Data Updated!!!");
+            },error: (error) => {
+                console.error(error);
+            },
+            complete: () => {console.log('Process Completed...')}
+        }) ;
+    }
+
+    removeData() {
+        const id = 5;
+        this.dashboardService.removeData(id).subscribe({
+            next: (data) => {
+                console.log("Data Deleted!!!");
+            },error: (error) => {
+                console.error(error);
+            },
+            complete: () => {console.log('Process Completed...')}
+        })
+    }
+
 }

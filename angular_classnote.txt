@@ -70,4 +70,8 @@ RouterLink - like <a>.
 ActivatedRoure - we can pass data via url
 
 -------------
-Backend Service can be invoked via http service. http we have all the methods like GET, PUT, POST, DELETYE
+Backend Service can be invoked via http client. http we have all the methods like GET, PUT, POST, DELETYE
+
+Observable - it is producer that emit(publish) data time to time.
+once the data pusblished then we need some consumer (Subscriber) to consume that data 
+The reason we have to subscribe data in asynchronus way.
