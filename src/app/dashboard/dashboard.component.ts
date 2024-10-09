@@ -18,6 +18,9 @@ export class DashboardComponent implements OnInit {
     @Output() passDataFromChild = new EventEmitter<string>();
     txtmsg:string='Sending Back to Parent!!';
     receivedData: any;
+    empName: string = '';
+    empLocation: string = '';
+    managerId: number = 0;
 
     constructor(private route: ActivatedRoute, 
                 private dashboardService: DashboardService) {
@@ -43,9 +46,9 @@ export class DashboardComponent implements OnInit {
 
     submitData() {
         const reqParam = {
-            title: 'Data',
-            requestId: 2,
-            data: 'Please check once'
+            empName: this.empName,
+            empLocation: this.empLocation,
+            managerId: this.managerId
         };
 
         this.dashboardService.postData(reqParam).subscribe({

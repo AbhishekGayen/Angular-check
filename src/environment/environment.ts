@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    contextPath: 'http://localhost:8080'
+    contextPath: 'http://localhost:8081'
 }
